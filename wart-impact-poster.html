@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WART 2024-2025 Impact Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0A0E27;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .poster {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #0A0E27 0%, #1A1E3F 50%, #0A0E27 100%);
+            position: relative;
+        }
+
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 111, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 137, 123, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 167, 38, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header {
+            padding: 4rem 3rem 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #FF6F3C;
+        }
+
+        .logo-area {
+            margin-bottom: 2rem;
+        }
+
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #FF6F3C 0%, #FFA726 50%, #FFD54F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #B0BEC5;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .period {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 2rem;
+            background: rgba(255, 111, 60, 0.2);
+            border: 2px solid #FF6F3C;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero-stat {
+            background: rgba(26, 30, 63, 0.8);
+            border: 2px solid #FF6F3C;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .hero-stat::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 111, 60, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-stat:hover {
+            transform: scale(1.05);
+            border-color: #FFA726;
+            box-shadow: 0 0 40px rgba(255, 111, 60, 0.4);
+        }
+
+        .hero-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF6F3C, #FFA726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-label {
+            font-size: 1.2rem;
+            color: #CFD8DC;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin: 4rem 0 2rem;
+            padding-left: 2rem;
+            border-left: 6px solid #FF6F3C;
+            color: #FFA726;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, rgba(255, 111, 60, 0.1) 0%, rgba(0, 137, 123, 0.1) 100%);
+            border: 1px solid rgba(255, 111, 60, 0.3);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            background: linear-gradient(135deg, rgba(255, 111, 60, 0.2) 0%, rgba(0, 137, 123, 0.2) 100%);
+            transform: translateY(-5px);
+            border-color: #FF6F3C;
+        }
+
+        .impact-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFA726;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 0.9rem;
+            color: #B0BEC5;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-box {
+            background: linear-gradient(135deg, #1A1E3F 0%, #0F1123 100%);
+            border: 2px solid #00897B;
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00897B, #4DB6AC);
+        }
+
+        .project-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: #4DB6AC;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .metric {
+            background: rgba(0, 137, 123, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid #4DB6AC;
+        }
+
+        .metric-value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: #4DB6AC;
+            font-weight: 700;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #90A4AE;
+            margin-top: 0.3rem;
+        }
+
+        .gender-visual {
+            margin: 3rem 0;
+            background: rgba(26, 30, 63, 0.8);
+            border: 2px solid #1976D2;
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .gender-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: #64B5F6;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .gender-bars {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .gender-item {
+            flex: 1;
+        }
+
+        .gender-bar-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            height: 60px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .gender-bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            transition: width 2s ease-out;
+        }
+
+        .male-fill {
+            background: linear-gradient(90deg, #1976D2, #42A5F5);
+        }
+
+        .female-fill {
+            background: linear-gradient(90deg, #D84315, #FF6F3C);
+        }
+
+        .gender-label {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #CFD8DC;
+            font-weight: 600;
+        }
+
+        .footer-banner {
+            background: linear-gradient(135deg, #FF6F3C 0%, #D84315 100%);
+            padding: 2.5rem 3rem;
+            text-align: center;
+            border-top: 3px solid #FFA726;
+        }
+
+        .footer-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact a {
+            color: #FFD54F;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .hero-stats,
+            .project-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gender-bars {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="logo-area">
+                <div class="main-title">IMPACT 2024-2025</div>
+                <div class="subtitle">WOMEN AGENCY FOR RESILIENCE AND TRANSFORMATION</div>
+                <div class="period">OCTOBER 2024 - JULY 2025</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-number">38,680+</div>
+                    <div class="hero-label">Lives Impacted</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-number">47</div>
+                    <div class="hero-label">Organizations Supported</div>
+                </div>
+            </div>
+
+            <div class="section-title">KEY ACHIEVEMENTS</div>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">10,164</div>
+                    <div class="impact-label">Microgrants Beneficiaries</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">6,128</div>
+                    <div class="impact-label">Adolescents Empowered</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">5,580</div>
+                    <div class="impact-label">Survivors Supported</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">$150,556</div>
+                    <div class="impact-label">Funds Disbursed</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">100,000</div>
+                    <div class="impact-label">Radio Listeners</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">88%</div>
+                    <div class="impact-label">Meet Basic Needs</div>
+                </div>
+            </div>
+
+            <div class="section-title">PROJECT HIGHLIGHTS</div>
+            
+            <div class="project-showcase">
+                <div class="project-box">
+                    <div class="project-name">RUBKONA MICROGRANTS</div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">22</div>
+                            <div class="metric-label">CBOs Supported</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">10,164</div>
+                            <div class="metric-label">People Reached</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">88%</div>
+                            <div class="metric-label">Meet Basic Needs</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">81</div>
+                            <div class="metric-label">Members Trained</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <div class="project-name">NORTHERN BAHR EL GHAZAL</div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">9,810</div>
+                            <div class="metric-label">Total Reached</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2,759</div>
+                            <div class="metric-label">Girls Empowered</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50</div>
+                            <div class="metric-label">Women Entrepreneurs</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">100</div>
+                            <div class="metric-label">Staff Trained</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <div class="project-name">AWEIL NORTH GBV</div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">21,000+</div>
+                            <div class="metric-label">People Reached</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">523</div>
+                            <div class="metric-label">Girls (IMPower)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">424</div>
+                            <div class="metric-label">Boys (Y-MOT)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">90</div>
+                            <div class="metric-label">Health Workers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <div class="project-name">AYOD TRANSITIONAL JUSTICE</div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">8,517</div>
+                            <div class="metric-label">People Reached</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">5,580</div>
+                            <div class="metric-label">Survivors Supported</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">608</div>
+                            <div class="metric-label">PWDs Included</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">30</div>
+                            <div class="metric-label">VSGs Formed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gender-visual">
+                <div class="gender-title">GENDER INCLUSIVE PROGRAMMING</div>
+                <div class="gender-bars">
+                    <div class="gender-item">
+                        <div class="gender-bar-container">
+                            <div class="gender-bar-fill male-fill" style="width: 52%;">
+                                MALE: 52%
+                            </div>
+                        </div>
+                        <div class="gender-label">20,000+ Men & Boys</div>
+                    </div>
+                    <div class="gender-item">
+                        <div class="gender-bar-container">
+                            <div class="gender-bar-fill female-fill" style="width: 48%;">
+                                FEMALE: 48%
+                            </div>
+                        </div>
+                        <div class="gender-label">18,680+ Women & Girls</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-banner">
+            <div class="footer-title">BUILDING RESILIENT COMMUNITIES</div>
+            <div class="footer-text">
+                Empowering women, girls, men, and boys through integrated programming in South Sudan
+            </div>
+            <div class="footer-contact">
+                <a href="http://www.wart-ss.org">www.wart-ss.org</a> | 
+                <a href="mailto:info@wart-ss.org">info@wart-ss.org</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
